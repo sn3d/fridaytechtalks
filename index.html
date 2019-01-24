@@ -1,0 +1,214 @@
+<html>
+    <head>
+            <link rel="stylesheet" id="font-awesome-css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css" media="all">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+            <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+            <style>
+                body {
+                    text-align: center;
+                    font-family: "Roboto", "Raleway", sans-serif;
+                }
+
+                h1 {
+                    margin-inline-start: 0px;
+                    margin-inline-end: 0px;
+                    margin-block-start: 0.83em;
+                    margin-block-end: 0.83em;
+                    text-align: center;
+                    font-weight: 700;
+                    font-size: 100px;
+                    line-height: 140px;
+                    margin-bottom: 56px;
+                }
+
+                h2 {
+                    margin-inline-start: 0px;
+                    margin-inline-end: 0px;
+                    margin-block-start: 0.83em;
+                    margin-block-end: 0.83em;
+                    text-align: center;
+                    font-weight: 300;
+                    font-size: 40px;
+                }
+
+                #main {
+                    width: 1024px;
+                    margin-left:auto;
+                    margin-right:auto;
+                }
+
+                .chart {
+                    width: 700px;
+                    height: 400px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }                
+            </style>
+    </head>
+    <body>
+            <div id="main">
+                <h1>#fridaytechtalks</h1>
+
+                <h2>Najviac ma zaujima</h2>
+                <div class="chart">
+                    <canvas id="qOneChart"></canvas>
+                </div>                    
+
+                <h2>Druhe v poradi je:</h2>
+                <div class="chart">
+                    <canvas id="qTwoChart"></canvas>
+                </div>                    
+
+                <h2>Preferujem format:</h2>
+                <div class="chart">
+                    <canvas id="qThreeChart"></canvas>
+                </div>                    
+
+                <h2>Uprednostnim:</h2>
+                <div class="chart">
+                    <canvas id="qFourChart"></canvas>
+                </div>                    
+
+                <h2>Tab alebo space? :-)</h2>
+                <div class="chart">
+                    <canvas id="qFiveChart"></canvas>
+                </div>                    
+
+            </div>
+
+
+            <script>
+                    q_one_data = {
+                        datasets: [{
+                            data: [32,16, 12, 8, 8, 8, 8, 4, 4],
+                            backgroundColor: [
+                                '#427572', '#619887', '#8bbc97', '#bfdea5', '#fcfeb6', '#f6d483', '#f2a75d', '#eb764a', '#de3c49'
+                            ],
+                        }],
+
+                        labels: [
+                            'software design a prog. jazyky ( clean code, OOP, func. programming, refactoring, Rust, Erlang, Cobol :-) )',
+                            'backend technologie (Spring, Akka)',
+                            'data a databazy (RDBMS, optimalizacia SQL, NoSQL, analytika)',
+                            'testing (BDD, perf. testing, chaos engineering)',
+                            'project/product (agile, lean, event storming, mental models)',
+                            'frontend technologie (React, Vue)',
+                            'mobilne technlologie (iOS, Android, ReactNative)',
+                            'technology and problems (not) solved in WD projects',
+                            'security (OWASP, Red & Blue team, vulnerabilities)'
+                        ],
+                    };
+
+                    var ctx = document.getElementById("qOneChart").getContext("2d");;
+                    var myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: q_one_data,
+                        options: {
+                        }
+                    })
+            </script>
+
+            <script>
+                q_two_data = {
+                    datasets: [{
+                        data: [16, 8, 20, 0, 8, 24, 0, 0, 12],
+                        backgroundColor: [
+                            '#427572', '#619887', '#8bbc97', '#bfdea5', '#fcfeb6', '#f6d483', '#f2a75d', '#eb764a', '#de3c49'
+                        ],
+                    }],
+
+                    labels: [
+                        'software design a prog. jazyky ( clean code, OOP, func. programming, refactoring, Rust, Erlang, Cobol :-) )',
+                        'backend technologie (Spring, Akka)',
+                        'data a databazy (RDBMS, optimalizacia SQL, NoSQL, analytika)',
+                        'testing (BDD, perf. testing, chaos engineering)',
+                        'project/product (agile, lean, event storming, mental models)',
+                        'frontend technologie (React, Vue)',
+                        'mobilne technlologie (iOS, Android, ReactNative)',
+                        'technology and problems (not) solved in WD projects',
+                        'security (OWASP, Red & Blue team, vulnerabilities)'
+                    ],
+                };
+
+                var ctx = document.getElementById("qTwoChart").getContext("2d");;
+                var myChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: q_two_data,
+                    options: {}
+                })                
+            </script>
+
+            <script>
+                q_three_data = {
+                    datasets: [{
+                        data: [60, 40],
+                        backgroundColor: [
+                            '#427572', '#de3c49'
+                        ],
+                    }],
+
+                    labels: [
+                        'nestrukturovany: Otazky su kladene priamo pocas talku',
+                        'strukturovany, rozdeleny na 2 casti: najprv talk, Q&A nakoniec'
+                    ],
+                };
+
+                var ctx = document.getElementById("qThreeChart").getContext("2d");;
+                var myChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: q_three_data,
+                    options: {
+                    }
+                })
+            </script>
+
+            <script>
+                q_four_data = {
+                    datasets: [{
+                        data: [58.3, 41.7],
+                        backgroundColor: [
+                            '#427572', '#de3c49'
+                        ],
+                    }],
+
+                    labels: [
+                        'viac praktickeho kodu na ukor teoretickych infromacii',
+                        'viac teoretickych informacii na ukor praktickeho kodu'
+                    ],
+                };
+
+                var ctx = document.getElementById("qFourChart").getContext("2d");;
+                var myChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: q_four_data,
+                    options: {
+                    }
+                })
+            </script>      
+
+            <script>
+                q_five_data = {
+                    datasets: [{
+                        data: [54.5, 45.5],
+                        backgroundColor: [
+                            '#427572', '#de3c49'
+                        ],
+                    }],
+
+                    labels: [
+                        'space',
+                        'tab'
+                    ],
+                };
+
+                var ctx = document.getElementById("qFiveChart").getContext("2d");;
+                var myChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: q_five_data,
+                    options: {
+                    }
+                })
+            </script>        
+
+    </body>
+</html>
