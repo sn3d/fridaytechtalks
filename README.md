@@ -1,2 +1,0 @@
-# fridaytechtalks
-#fridaytechtalks
